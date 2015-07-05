@@ -5,7 +5,9 @@
   self.message = opts.default || 'Hello World!'
 
   this.on('mount', function () {
-    opts.getMessage()
+    if (opts.getMessage) {
+      opts.getMessage()
+    }
   })
 
   opts.on('message', function(message) {

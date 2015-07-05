@@ -5,10 +5,17 @@ var gulp = require('gulp')
   , babel = require('gulp-babel')
 
 gulp.task('riot', function () {
-  return gulp.src('src/tags/*.tag')
+  return gulp.src('src/components/**/*.tag')
     .pipe(riot())
     .pipe(concat('tags.js'))
-    .pipe(gulp.dest('dest/tags'))
+    .pipe(gulp.dest('dest'))
+})
+
+gulp.task('babel', function () {
+  return gulp.src('src/components/**/*.js')
+    .pipe(babel())
+    .pipe(concat('api.js'))
+    .pipe(gulp.dest('dest'))
 })
 
 gulp.task('jade', function () {
@@ -17,16 +24,10 @@ gulp.task('jade', function () {
     .pipe(gulp.dest('dest'))
 })
 
-gulp.task('babel', function () {
-  return gulp.src('src/api/*.js')
-    .pipe(babel())
-    .pipe(gulp.dest('dest/api'))
-})
-
 gulp.task('watch', function () {
-  gulp.watch('src/tags/*.tag', ['riot'])
+  gulp.watch('src/componebts/**/*.tag', ['riot'])
+  gulp.watch('src/componebts/**/*.js', ['babel'])
   gulp.watch('src/index.jade', ['jade'])
-  gulp.watch('src/api/*.js', ['babel'])
 })
 
 gulp.task('default', ['watch', 'riot', 'jade', 'babel'])

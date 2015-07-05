@@ -12,3 +12,10 @@
 
   riot.mount('message', messenger);
 })();
+'use strict';
+
+;(function () {
+  //var
+
+  riot.mount('tic-tac-toe');
+})();
