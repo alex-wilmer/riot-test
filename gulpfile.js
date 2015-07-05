@@ -26,7 +26,7 @@ gulp.task('babel', function () {
 gulp.task('watch', function () {
   gulp.watch('src/tags/*.tag', ['riot'])
   gulp.watch('src/index.jade', ['jade'])
-  gulp.watch('src/app.js', ['babel'])
+  gulp.watch('src/api/*.js', ['babel'])
 })
 
 gulp.task('default', ['watch', 'riot', 'jade', 'babel'])
