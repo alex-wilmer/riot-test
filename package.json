@@ -10,6 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-riot": "^0.2.16"
+    "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-riot": "^0.2.16",
+    "jade": "^1.11.0"
   }
 }
